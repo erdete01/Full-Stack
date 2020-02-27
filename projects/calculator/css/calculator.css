@@ -1,0 +1,29 @@
+#buttonc {
+    background-color: blue;
+    color: white;
+    width: 26%;
+}
+
+input[type="button"] {
+    background-color: powderblue;
+    color: red;
+    width: 5%;
+    margin: 0%;
+  }
+
+input[type="text"] {
+    width: 26%;
+    margin: 12px auto 0px auto;
+    font-size: 20px;
+    background-color: seashell;
+}
+
+#buttonEq {
+    background-color: blue;
+    color: white;
+    width: 26%;
+}
+
+  
+  
+
