@@ -75,12 +75,14 @@ async function getInfo() {
     }
 }
 
-async function loadMap() {
-    await getInfo();
+function loadMap() {
+    // await getInfo();
     let getNumbers = document.querySelector("#get")
     console.log(getNumbers);
     console.log(getNumbers[0]);
     console.log(getNumbers[1]);
+    // Instead of hardcoding lat and lng. {lat:43.3033, lng:-91.7857}
+    // I want to return getNumbers
      var options = {
          zoom: 10,
          center: {lat:43.3033, lng:-91.7857}
