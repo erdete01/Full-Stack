@@ -81,6 +81,7 @@ function loadMap() {
     console.log(getNumbers);
     console.log(getNumbers[0]);
     console.log(getNumbers[1]);
+    console.log("Hello");
     // Instead of hardcoding lat and lng. {lat:43.3033, lng:-91.7857}
     // I want to return getNumbers
      var options = {
