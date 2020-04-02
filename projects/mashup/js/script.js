@@ -28,6 +28,43 @@ async function getData(url) {
 
 async function getInfo() {
 
+    let vals = JSON.parse(localStorage.getItem('post1'));
+    let menu = document.querySelector('#post > tbody');
+    menu.innerHTML = "";
+    let row = document.createElement("tr");
+    let city = document.createElement("td");  
+    var myDictionary = vals[0];
+
+    // Appending from localStorage
+    var name = myDictionary["cityName"];
+    city.innerHTML = name
+    row.appendChild(city);
+    menu.appendChild(row);
+
+    let temp2 = document.createElement("td");
+    var weather = myDictionary["temperature"];
+    temp2.innerHTML = weather;
+    row.appendChild(temp2);
+    menu.appendChild(row);
+
+    let descr2 = document.createElement("td");
+    var title = myDictionary["weather"];
+    descr2.innerHTML = title;
+    row.appendChild(descr2);
+    menu.appendChild(row);
+
+    var y = document.createElement("IMG");
+    var icon2 = myDictionary["x"];
+    y.setAttribute("src", icon2);
+    row.appendChild(y);
+    menu.appendChild(row);
+
+    let descr4 = document.createElement("td");
+    var title = myDictionary["myArray"];
+    descr4.innerHTML = title;
+    row.appendChild(descr4);
+    menu.appendChild(row);
+
     // Assigning my own APIKEY to a String
     // Source: https://openweathermap.org/api
     var api = "44ee37cb145f80bd5ff333aaec7c6c57";
@@ -83,26 +120,30 @@ async function getInfo() {
         par.innerHTML = myArray;
         row.appendChild(lat);
 
-        
-        // Let's Set up a LocalStorage
-        // let menu = localStorage.getItem("post");
-        // let myStore = {};
-        // let names = ["cityName", "temperature", "weather", "x", "myArray"];
-        // for (let i of names) {
-        //     myStore[i] = document.getElementById(i).value;
-        // }
-        // menu.push(myStore);
-        // console.log(menu);
-        // console.log(cityName, temperature, weather, x , myArray)
+        // Removing everything from the localStorage
+        localStorage.removeItem("post1");
 
+        // Let's Set up a LocalStorage
+        let menu = localStorage.getItem("post1");
+        menu = menu ? JSON.parse(menu) : [];
+        // Instead of writing line by line, one can write it using a for loop if wanted
+        var myStore = {};
+        myStore["cityName"] = cityName;
+        myStore["temperature"] = temperature;
+        myStore["weather"] = weather;
+        myStore["x"] = imageURl;
+        myStore["myArray"] = myArray;
+        menu.push(myStore);
+        localStorage.setItem("post1", JSON.stringify(menu));
+        
+        // Getting longitude and latitude
         let getNumbers = document.querySelector("#get2").innerHTML;
         var array = JSON.parse("[" + getNumbers + "]");
-        console.log(array[0]);
         var options = {
             zoom: 10,
             center: {lat:array[0], lng:array[1]}
         }
-        //  map
+        // map
         var map = new
         google.maps.Map(document.getElementById('map'),options);
 
