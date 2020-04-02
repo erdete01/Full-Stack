@@ -29,41 +29,43 @@ async function getData(url) {
 async function getInfo() {
 
     let vals = JSON.parse(localStorage.getItem('post1'));
-    let menu = document.querySelector('#post > tbody');
-    menu.innerHTML = "";
-    let row = document.createElement("tr");
-    let city = document.createElement("td");  
-    var myDictionary = vals[0];
+    if (vals != null){
+        let menu = document.querySelector('#post > tbody');
+        menu.innerHTML = "";
+        let row = document.createElement("tr");
+        let city = document.createElement("td");  
+        var myDictionary = vals[0];
 
-    // Appending from localStorage
-    var name = myDictionary["cityName"];
-    city.innerHTML = name
-    row.appendChild(city);
-    menu.appendChild(row);
+        // Appending from localStorage
+        var name = myDictionary["cityName"];
+        city.innerHTML = name
+        row.appendChild(city);
+        menu.appendChild(row);
 
-    let temp2 = document.createElement("td");
-    var weather = myDictionary["temperature"];
-    temp2.innerHTML = weather;
-    row.appendChild(temp2);
-    menu.appendChild(row);
+        let temp2 = document.createElement("td");
+        var weather = myDictionary["temperature"];
+        temp2.innerHTML = weather;
+        row.appendChild(temp2);
+        menu.appendChild(row);
 
-    let descr2 = document.createElement("td");
-    var title = myDictionary["weather"];
-    descr2.innerHTML = title;
-    row.appendChild(descr2);
-    menu.appendChild(row);
+        let descr2 = document.createElement("td");
+        var title = myDictionary["weather"];
+        descr2.innerHTML = title;
+        row.appendChild(descr2);
+        menu.appendChild(row);
 
-    var y = document.createElement("IMG");
-    var icon2 = myDictionary["x"];
-    y.setAttribute("src", icon2);
-    row.appendChild(y);
-    menu.appendChild(row);
+        var y = document.createElement("IMG");
+        var icon2 = myDictionary["x"];
+        y.setAttribute("src", icon2);
+        row.appendChild(y);
+        menu.appendChild(row);
 
-    let descr4 = document.createElement("td");
-    var title = myDictionary["myArray"];
-    descr4.innerHTML = title;
-    row.appendChild(descr4);
-    menu.appendChild(row);
+        let descr4 = document.createElement("td");
+        var title = myDictionary["myArray"];
+        descr4.innerHTML = title;
+        row.appendChild(descr4);
+        menu.appendChild(row);
+    }
 
     // Assigning my own APIKEY to a String
     // Source: https://openweathermap.org/api
