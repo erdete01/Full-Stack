@@ -1,3 +1,9 @@
+"""
+Author: Temuulen Erdenebulgan
+Instructor: Professor Roman Yasinovskyy
+Class: CS330
+"""
+
 # !/usr/bin/env python3
 import random
 import pyjokes
