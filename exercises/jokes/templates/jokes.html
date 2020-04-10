@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h>Pick the category, language, and number of jokes to hear</h>
+<style>
+    h {
+        font-size: x-large;
+        padding-left: 10px;
+    }
+</style>
+</br>
+    <form method="GET">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select class="form-control" name="type">
+                            <option value="all">All</option>
+                            <option value="neutral">Neutral</option>
+                            <option value="chuck">Chuck Norris</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>language</label>
+                        <select class="form-control" name="language">
+                            <option value="en">en</option>
+                            <option value="de">de</option>
+                            <option value="es">es</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>Number</label>
+                        <select class="form-control" name="number">
+                            <option value="1">1</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                        <div class="form-group">
+                            <button id="submit" class="button btn btn-dark" type="submit">Amuse me</button>
+                        </div>
+                </div>
+            </div>
+        </form>
+    <!-- It displays the jokes based on how many number of jokes a user requested -->
+    <div class="alert alert-secondary">{{ joke }}</div>
+{% endblock %}
