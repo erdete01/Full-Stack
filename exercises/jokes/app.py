@@ -13,7 +13,7 @@ app = Flask(__name__)
 @app.route("/", methods=["GET", "POST"])
 
 def index():
-    # Getting all the numbers from form.html when a user enters the number
+    # Getting all the numbers from jokes.html when a user enters the number
     language = request.args.get("language")
     category = request.args.get("type")
     number = request.args.get("number")
@@ -23,11 +23,11 @@ def index():
         myNumber = int(number)
         jokes = send_jokes(language=language, category=category, number=myNumber)
         numbersOfJokes = str(jokes[0:myNumber]).strip('[]')
-        return render_template("form.html", joke=numbersOfJokes)
+        return render_template("jokes.html", joke=numbersOfJokes)
     
     # When a user opens the page, it will directly call form.html
     else: 
-        return render_template("form.html")
+        return render_template("jokes.html")
 
 # generate jokes based on language and category
 def send_jokes(language : str, category : str, number : int):
