@@ -1,10 +1,9 @@
-
 /* jshint esversion: 8 */
 /* jshint node: true */
 /* jshint browser: true */
 'use strict'
 
-const BASE_URL = "http://localhost:5000/api/v1/jokes"
+const BASE_URL = "https://temkahello.pythonanywhere.com/api/v1/jokes"
 
 
 async function getData(url) {
