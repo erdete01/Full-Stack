@@ -6,7 +6,6 @@ This project uses Sqlite Database.
 When a user enters data, it goes to roster.csv.
 Then, it gets all the data from roster.csv and adds them into the database
 To, make it work, a user should first check costumer.html and then can check admin.html
-Deployed: 
 http://tem12mka.pythonanywhere.com/
 """
 
@@ -74,23 +73,22 @@ def costumer():
                         for name in cur:
                                 name = name[1:]
                                 emptyList.append(name)
-                                return render_template("costumer.html", a=emptyList)
-                text = "No DATA!"
-                return render_template("costumer.html", removed=text)
+                        if len(emptyList) == 0:
+                                text = "No DATA!"
+                                return render_template("costumer.html", removed=text)
+                        return render_template("costumer.html", a=emptyList)
+               
 
-
-# I could also remove all the data, will finish this part in the future
-# Deleting Roster.csv is all I have left here. 
-"""
 @app.route("/remove")
 def delete():
         with sqlite3.connect(f"roster.db") as conn:
                 cur = conn.cursor()
                 cur.execute(f"delete from roster")
-                # It should also delete roster.csv file. But not finished yet. A user should first go to Costumer 
+                # It should also delete roster.csv file. But not finished yet. A user should first go to Costumer
+                os.remove("roster.csv") 
                 message = "Successfully removed all the items from DB, Please Check Costumer"
         return render_template("base.html", myMessage=message)
-"""
+
 
 
 
