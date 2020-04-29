@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p>
+    Dear Costumer, we have following items in our store.
+</p>
+<style>
+        h {
+            font-size: x-large;
+            padding-left: 10px;
+            text-align: center;
+        }
+    </style>
+        <table id="roster" class="table">
+                <thead>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                </thead>
+                <tbody>
+                    {% for s in a %}
+                    <tr>
+                        <td>{{ s[0] }}</td>
+                        <td>{{ s[1] }}</td>
+                        <td>{{ s[2] }}</td>
+                    
+                    </tr>
+                    {% endfor %}
+                </tbody> 
+            </table>  
+<p>
+    {{ removed }}
+</p> 
+
+{% endblock %}
