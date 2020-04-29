@@ -6,6 +6,8 @@ This project uses Sqlite Database.
 When a user enters data, it goes to roster.csv.
 Then, it gets all the data from roster.csv and adds them into the database
 To, make it work, a user should first check costumer.html and then can check admin.html
+Deployed: 
+http://tem12mka.pythonanywhere.com/
 """
 
 import sqlite3
