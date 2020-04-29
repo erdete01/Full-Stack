@@ -6,7 +6,7 @@ This project uses Sqlite Database.
 When a user enters data, it goes to roster.csv.
 Then, it gets all the data from roster.csv and adds them into the database
 To, make it work, a user should first check costumer.html and then can check admin.html
-http://timab.pythonanywhere.com/
+http://tem12mka.pythonanywhere.com/
 """
 
 import sqlite3
@@ -41,6 +41,7 @@ def admin():
     if name and category and number:
         sum = str(name) + "," + str(category) +  "," + str(number)
         appendFile = open('roster.csv', 'a')
+        appendFile.write('name,category,number')
         appendFile.write('\n')
         appendFile.write(sum)
         appendFile.close()
@@ -81,13 +82,17 @@ def costumer():
 
 @app.route("/remove")
 def delete():
-        with sqlite3.connect(f"roster.db") as conn:
-                cur = conn.cursor()
-                cur.execute(f"delete from roster")
-                # It should also delete roster.csv file. But not finished yet. A user should first go to Costumer
-                os.remove("roster.csv") 
-                message = "Successfully removed all the items from DB, Please Check Costumer"
-        return render_template("base.html", myMessage=message)
+        try:
+                with sqlite3.connect(f"roster.db") as conn:
+                        cur = conn.cursor()
+                        cur.execute(f"delete from roster")
+                        # It should also delete roster.csv file. But not finished yet. A user should first go to Costumer
+                        os.remove("roster.csv") 
+                        message = "Successfully removed all the items from DB, Please Check Costumer"
+                        return render_template("base.html", myMessage=message)
+        except FileNotFoundError:
+                cant = "You Can't Remove from an Empty table"
+                return render_template("base.html", myMessage=cant)
 
 
 
