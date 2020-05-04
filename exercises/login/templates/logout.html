@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+div, h1 {
+    width: 300px;
+    padding-left: 10px;
+    padding-top: 20px;
+  }
+</style> 
+  
+<div class="mui--container mui--text"> 
+    
+    <h1>
+        {{ name }}
+    </h1>
+
+    <form method="post">
+        <button class="mui-btn mui-btn--primary">Log out</button>
+    </form>
+
+</div>
+    
+{% endblock %}
