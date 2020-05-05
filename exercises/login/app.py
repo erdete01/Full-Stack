@@ -1,11 +1,15 @@
+"""
+Author: Temuulen Erdenebulgan
+Instructor: Professor Roman Yasinovskyy
+Exercise: login 
+"""
+
 from flask import Flask, session, redirect, url_for, escape, request, render_template
 import os
 from markupsafe import escape
 
 app = Flask(__name__)
-# app.secret_key = os.environ.get("SECRET_KEY")
-app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
-
+app.secret_key = os.environ.get("SECRET_KEY")
 
 @app.route("/")
 def index():
