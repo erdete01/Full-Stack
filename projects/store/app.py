@@ -41,15 +41,14 @@ def admin():
     if name and category and number:
         sum = str(name) + "," + str(category) +  "," + str(number)
         appendFile = open('roster.csv', 'a')
-        appendFile.write('name,category,number')
-        appendFile.write('\n')
         appendFile.write(sum)
+        appendFile.write('\n')
         appendFile.close()
 
         # Adding data to database 
         with sqlite3.connect(f"roster.db") as conn:
             conn.execute(f"drop table if exists roster")
-            data = pd.read_csv(f"roster.csv")
+            data = pd.read_csv(f"roster.csv", header=None)
             data.to_sql(f"roster", conn)
 
             # Displaying data for admin
@@ -93,10 +92,3 @@ def delete():
         except FileNotFoundError:
                 cant = "You Can't Remove from an Empty table"
                 return render_template("base.html", myMessage=cant)
-
-
-
-
-
-
-
