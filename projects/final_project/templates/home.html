@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+        <div class="row">
+
+            <div class="col-2">
+                <div class="form-group">
+                    <h2><a href="/">Quality Bookstore</a></h2>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-group">
+                    <!-- Search form -->
+                    <form class="form-inline d-flex justify-content-center md-form form-sm">
+                        <input type="text" class="form-control" placeholder="Search" aria-label="Search" name="searching">
+                        <!-- <i class="fas fa-search" aria-hidden="true"></i> -->
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-2">
+                <div class="form-group">
+                    <form method="post">
+                    <button id="submit" class="button btn btn-dark" name="submit_button" type="submit" value="SignIn">Sign In</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-2">
+                    <div class="form-group">
+                        <form method="post">
+                        <button id="submit" class="button btn btn-dark" name="submit_button" type="submit" value="myCart">myCart</button>
+                        </form>
+                    </div>
+            </div>
+        </div>
+
+        <style>
+        p {
+            text-align: center;
+        }
+        </style>
+        <p> {{greetingss}} </p>
+
+            <div class="table-responsive">
+                <form method="post">
+                    <table id="roster" class="table">
+                        <thead>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Number</th>
+                            <th>Price</th>
+                        </thead>
+                        <tbody>
+                            {% for s in roster %}
+                            <tr value="add">
+                                <td value="add" name="add">{{ s.name }}</td>
+                                <input type="hidden" name="add" value="{{ s.name }}" />
+                                <td value="add" name="add">{{ s.category }}</td>
+                                <input type="hidden" name="add1" value="{{ s.category }}" />
+                                <td value="add" name="add">{{ s.number }}</td>
+                                <input type="hidden" name="add2" value="{{ s.number }}" />
+                                <td value="add" name="add">{{ s.price }}</td>
+                                <input type="hidden" name="add3" value="{{ s.price }}" />      
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+
+{% endblock %}
