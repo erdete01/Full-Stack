@@ -1,8 +1,3 @@
-"""
-It will take data from my roster, and write data into my sqlitedatabase
-Only have to run this file once, unless I want to do it again
-If I want to add data to do it, get data later
-"""
 import csv
 import os
 from config import db
