@@ -15,7 +15,7 @@ from build_db import *
 import random
 import requests
 
-pp = Flask(__name__)
+app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY")
 
 # Base Template
